@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominik Otto Gebäudedienst</title>
+    <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css">
+</head>
+<body>
+    <div class="navbar border-bottom sticky-top bg-white">
+        <div class="container-fluid">
+            <div class="col-12 text-center">
+                <a class="navbar-brand m-0 text-dark" href="index.html">
+                    <h4>
+                        Dominik Otto Gebäudedienst
+                    </h4>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid p-0">
+        <div class="col-12 d-flex w-100 img-collection-main bg-dark p-0">
+            <div class="position-absolute w-100 img-collection-overlay text-white d-flex justify-content-center align-items-center">
+                <div class="col-md-5 text-center">
+                    <h1 class="img-collection-overlay-heaer">
+                        Gebäudereinigung und Hausmeisterdienste
+                    </h1>
+                </div>
+            </div>
+            <div class="col-12 img-collection-item d-flex justify-content-center align-items-center">
+                <img src="assets/img/test/1.webp" class="img-collection-item-img p-0">
+            </div>
+            <div class="col-12 img-collection-item d-flex justify-content-center align-items-center">
+                <img src="assets/img/test/2.webp" class="img-collection-item-img p-0">
+            </div>
+            <div class="col-12 img-collection-item d-flex justify-content-center align-items-center">
+                <img src="assets/img/test/3.webp" class="img-collection-item-img p-0">
+            </div>
+            <div class="col-12 img-collection-item d-flex justify-content-center align-items-center">
+                <img src="assets/img/test/4.webp" class="img-collection-item-img p-0">
+            </div>
+            <div class="col-12 img-collection-item d-flex justify-content-center align-items-center">
+                <img src="assets/img/test/5.webp" class="img-collection-item-img p-0">
+            </div>
+            <div class="col-12 img-collection-item d-flex justify-content-center align-items-center">
+                <img src="assets/img/test/6.webp" class="img-collection-item-img p-0">
+            </div>
+        </div>
+        <div class="row m-0 col-12 justify-content-center mt-4 appearAnimation">
+            <h1>
+                Unsere Dienste
+            </h1>
+        </div>
+        <div class="row m-0 mt-4 col-12 justify-content-evenly" style="justify-content: space-evenly;">
+            <div class="col-md-4 mb-4 appearAnimationDelay1">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Gebäudereinigung</h4>
+                        <div class="card-text">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">- Glasreinigung</li>
+                                <li class="list-group-item">- Treppenhausreinigung</li>
+                                <li class="list-group-item">- Unterhaltsreinigung</li>
+                                <li class="list-group-item">- Bauabschlussreinigung</li>
+                                <li class="list-group-item">- Osmosereinigung Solaranlagen / Fenster</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 appearAnimationDelay2">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Hausmeisterdienste</h4>
+                        <div class="card-text">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">- Objektbetreuung</li>
+                                <li class="list-group-item">- Winterdienste</li>
+                                <li class="list-group-item">- Gartenarbeit</li>
+                                <li class="list-group-item">- Renovierungsarbeiten</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+    .img-collection-main {
+        height: 50vh;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 1%);
+    }
+
+    .img-collection-item {
+        right: 0;
+        transition: right 2s ease;
+        overflow: hidden;
+    }
+
+    .img-collection-item-img {
+        min-height: 50vh !important;
+    }
+
+    .img-collection-overlay {
+        height: 50vh;
+        background: rgba(0, 0, 0, 25%);
+        z-index: 1;
+    }
+
+    .img-collection-overlay-heaer {
+        text-shadow: 0 1px 10px black;
+    }
+
+    .appearAnimation {
+        opacity: 0;
+        animation: appearAnim 1s ease;
+        animation-fill-mode: forwards;
+    }
+
+    .appearAnimationDelay1 {
+        opacity: 0;
+        animation: appearAnim 1s 0.5s ease;
+        animation-fill-mode: forwards;
+    }
+
+    .appearAnimationDelay2 {
+        opacity: 0;
+        animation: appearAnim 1s 1s ease;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes appearAnim {
+        0% {opacity: 0;}
+        100% {opacity: 100%;}
+    }
+</style>
+<script>
+    const collectionItems = document.querySelectorAll('.img-collection-item');
+    const collectionCount = collectionItems.length;
+    let collectionImgCurrentCount = 0;
+
+    setInterval(setImgRightSpace, 6000);
+
+    function setImgRightSpace()
+    {
+        if (collectionImgCurrentCount < collectionCount - 1) {
+            collectionImgCurrentCount++;    
+
+            collectionItems.forEach((item) => {
+                item.style.right = collectionImgCurrentCount * 100 + '%';
+            });
+        } else {
+            collectionImgCurrentCount = 0;
+
+            collectionItems.forEach((item) => {
+                item.style.right = '0';
+            });
+        }
+    }
+</script>
+<script src="assets/js/bootstrap/bootstrap.min.js"></script>
+</html>
